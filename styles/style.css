@@ -1,0 +1,319 @@
+/* --------------------------------------------------------
+    RESET https://andy-bell.co.uk/a-more-modern-css-reset/
+----------------------------------------------------------- */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body, h1, h2, h3, h4, p,
+figure, blockquote, dl, dd {
+  margin-block-end: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1, h2, h3, h4,
+button, input, label {
+  line-height: 1.1;
+}
+
+/* Balance text wrapping on headings */
+h1, h2,
+h3, h4 {
+  text-wrap: balance;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input, button,
+textarea, select {
+  font: inherit;
+}
+
+/* ============================================
+    BASE
+=============================================== */
+
+:root {
+    /* Color variables */ 
+    --clr-red: hsl(0, 100%, 74%);
+    --clr-green: hsl(154, 59%, 51%);
+    --clr-blue: hsl(248, 32%, 49%);
+    --clr-dark-blue: hsl(249, 10%, 26%);
+    --clr-greyish-white: hsl(246, 25%, 77%);
+    --clr-transparent-text: rgba(255, 255, 255, .85);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    line-height: 1.6;
+
+    background-image: url(../images/bg-intro-mobile.png);
+    background-color: var(--clr-red);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+main {
+    width: 85%;
+    max-width: 30rem;
+    margin: 0 auto;
+}
+
+footer {
+    margin-top: 2rem;
+}
+
+.sr-only {
+    position: absolute ;
+    left: -10000px;
+    width: 1px;
+    height: 1px;
+    top: auto;
+    overflow: hidden;
+}
+
+@media (min-width: 60em) {
+ 
+    body {
+        background-image: url(../images/bg-intro-desktop.png);
+        background-color: var(--clr-red);
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    /* 
+        Position main in 2 columns 
+        - on the center of the page
+        - footer on the bottom 
+    */
+    body,
+    main {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    main { flex-flow: row nowrap; } /* to use the gap */
+
+    .info,
+    .form-container {
+        width: 50%;
+    }
+
+    footer {
+        bottom: 0;
+        width: 100%;
+        margin: 0;
+        align-self: flex-end;
+    }
+
+    /* adjust main width and margins */
+    main {
+        width: 90%;
+        max-width: 69.5rem;
+        margin-top: 4rem;
+        gap: 2rem;
+    }
+
+}
+
+/* ============================================
+    INFO
+=============================================== */
+
+.info {
+    margin: 6rem 0 4rem;
+    text-align: center;
+}
+
+.info-title {
+    font-size: 1.625rem;
+    line-height: 1.3;
+}
+
+.info-text {
+    margin-top: 1.5rem;
+    font-weight: 500;
+    color: var(--clr-transparent-text);
+}
+
+@media (min-width: 60em) {
+
+    .info {
+        text-align: start;
+        margin: 0;
+    }
+
+    .info-title {
+        font-size: 3rem;
+        line-height: 1.1;
+    }
+}
+
+/* ============================================
+    FORM
+=============================================== */
+
+.form,
+.free-trial-link {
+    box-shadow: 0 .5rem rgba(0, 0, 0, .13);
+    border-radius: .5rem;
+}
+
+/* Free trial link */
+
+.free-trial-link {
+    display: block;
+    width: 100%;
+    padding: 1.25rem 3rem;
+    background-color: var(--clr-blue);
+  
+    color: var(--clr-transparent-text);
+    text-decoration: none;
+    text-align: center;
+}
+
+.free-trial-link span {
+    color: white;
+    font-weight: 600;
+}
+
+/* Form */
+
+.form {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background-color: white;
+    color: var(--clr-greyish-white);
+}
+
+.input-container {
+    position: relative;
+    margin-bottom: 1.125rem;
+}
+
+input,
+.btn-submit {
+    padding: 1rem;
+    border-radius: .3rem;
+}
+
+input {
+    width: 100%;
+    border: 1px solid var(--clr-greyish-white);
+    outline: none;
+
+    font-size: .875rem;
+    font-weight: 600;
+}
+
+input:focus {
+    border: 2px solid var(--clr-blue);
+}
+
+.input-error {
+    border: 2px solid var(--clr-red);
+}
+
+.input-error-icon {
+    display: none;
+    position: absolute;
+    top: .85rem;
+    right: .75rem;
+    width: 1.25rem;
+    aspect-ratio: 1;
+}
+
+.input-error-icon-show {
+    display: block;
+}
+
+.input-error-msg {
+    position: absolute;
+    bottom: -1.125rem;
+    right: 0;
+    font-size: .75rem;
+    color: var(--clr-red);
+}
+
+.btn-submit {
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    background-color: var(--clr-green);
+    box-shadow: inset 0 -.25rem rgba(0, 0, 0, .1);
+    
+    text-align: center;
+    text-transform: uppercase;
+    color: white;
+    font-weight: 500;
+    letter-spacing: .07em;
+}
+
+/* Terms and services link */
+
+.terms {
+    margin-top: 1.5rem;
+    font-size: .75rem;
+    text-align: center;
+}
+
+.terms a {
+    color: var(--clr-red);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* ============================================
+    FOOTER
+=============================================== */
+
+.attribution { 
+    width: 85%;
+    margin: 0 auto;
+    padding: 1.5rem;
+    font-size: .75rem; 
+    text-align: center; 
+}
+
+.attribution a { color: hsl(71, 93%, 84%); }
