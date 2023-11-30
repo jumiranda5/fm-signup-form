@@ -124,14 +124,19 @@ footer {
         Position main in 2 columns 
         - on the center of the page
         - footer on the bottom 
+        - add padding to body to avoid covering the footer
     */
+
     body,
     main {
         display: flex;
         flex-flow: row wrap;
         justify-content: center;
         align-items: center;
+        position: relative;
     }
+
+    body { padding: 4.5rem 0; }
 
     main { flex-flow: row nowrap; } /* to use the gap */
 
@@ -141,17 +146,16 @@ footer {
     }
 
     footer {
+        position: absolute;
         bottom: 0;
         width: 100%;
         margin: 0;
-        align-self: flex-end;
     }
 
     /* adjust main width and margins */
     main {
         width: 90%;
         max-width: 69.5rem;
-        margin-top: 4rem;
         gap: 2rem;
     }
 
@@ -196,7 +200,7 @@ footer {
 
 .form,
 .free-trial-link {
-    box-shadow: 0 .5rem rgba(0, 0, 0, .13);
+    box-shadow: 0 .45rem rgba(0, 0, 0, .15);
     border-radius: .5rem;
 }
 
@@ -221,7 +225,7 @@ footer {
 /* Form */
 
 .form {
-    margin-top: 2rem;
+    margin-top: 1.5rem;
     padding: 1.5rem;
     background-color: white;
     color: var(--clr-greyish-white);
@@ -245,7 +249,10 @@ input {
 
     font-size: .875rem;
     font-weight: 600;
+    color: var(--clr-dark-blue);
 }
+
+input::placeholder { color: rgba(62, 60, 73, .65); }
 
 input:focus {
     border: 2px solid var(--clr-blue);
@@ -253,12 +260,13 @@ input:focus {
 
 .input-error {
     border: 2px solid var(--clr-red);
+    color: var(--clr-red);
 }
 
 .input-error-icon {
     display: none;
     position: absolute;
-    top: .85rem;
+    top: 1.125rem;
     right: .75rem;
     width: 1.25rem;
     aspect-ratio: 1;
@@ -269,10 +277,10 @@ input:focus {
 }
 
 .input-error-msg {
-    position: absolute;
-    bottom: -1.125rem;
-    right: 0;
+    margin-top: .25rem;
+    text-align: end;
     font-size: .75rem;
+    font-weight: 500;
     color: var(--clr-red);
 }
 
@@ -286,14 +294,14 @@ input:focus {
     text-align: center;
     text-transform: uppercase;
     color: white;
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: .07em;
 }
 
 /* Terms and services link */
 
 .terms {
-    margin-top: 1.5rem;
+    margin-top: 1rem;
     font-size: .75rem;
     text-align: center;
 }
@@ -302,6 +310,15 @@ input:focus {
     color: var(--clr-red);
     text-decoration: none;
     font-weight: 600;
+}
+
+
+@media (min-width: 60em) {
+
+    .form {
+        padding: 2.5rem;
+    }
+
 }
 
 /* ============================================
