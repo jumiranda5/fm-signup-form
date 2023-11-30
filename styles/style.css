@@ -222,6 +222,8 @@ footer {
     font-weight: 600;
 }
 
+.free-trial-link:hover { background-color: #7a6ec9; }
+
 /* Form */
 
 .form {
@@ -297,6 +299,8 @@ input:focus {
     font-weight: 600;
     letter-spacing: .07em;
 }
+
+.btn-submit:hover { background-color: #4aeea7; }
 
 /* Terms and services link */
 
